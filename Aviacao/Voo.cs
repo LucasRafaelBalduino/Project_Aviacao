@@ -11,6 +11,7 @@ namespace Aviacao
     public class Voo
     {
         public int Id { get; set; }
+
         [Required]
         public DateTime InicioPrevisto { get; set; }
         public DateTime InicioReal { get; set; }
@@ -18,12 +19,11 @@ namespace Aviacao
         public DateTime ChegadaPrevista { get; set; }
         
         public DateTime ChegadaReal { get; set; }
-
-
-
+    
         [Required]
         [InverseProperty("Chegadas")]
         public Cidade Destino { get; set; }
+
 
         [Required]
         [InverseProperty("Partidas")]

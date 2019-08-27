@@ -15,9 +15,18 @@ namespace Aviacao
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Passagem>()
-                .HasOptional<FormaDePagamento>(f => f.Pagamento)
-                .WithOptionalPrincipal<Passagem>(f => f.Passagem);
-                
+                .HasOptional<FormaDePagamento>(p => p.Pagamento)
+                .WithOptionalPrincipal(f => f.Passagem);
+            modelBuilder.Entity<Voo>()
+                .HasRequired<Cidade>(v => v.Origem)
+                .WithMany(c => c.Partidas)
+                .WillCascadeOnDelete(false);
+            modelBuilder.Entity<Voo>()
+                .HasRequired<Cidade>(v => v.Destino)
+                .WithMany(c => c.Chegadas)
+                .WillCascadeOnDelete(false);
+
+
         }
         public virtual DbSet<Pessoa> Pessoas { get; set; }
     }
