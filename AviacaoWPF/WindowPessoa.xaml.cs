@@ -20,11 +20,35 @@ namespace AviacaoWPF
     /// </summary>
     public partial class WindowPessoa : Window
     {
-        public Pessoa Pessoa { get; set; }
+        public ViewModel.PessoasViewModel PessoasViewModel { get; set; }
         public WindowPessoa()
         {
             InitializeComponent();
+            this.PessoasViewModel = new ViewModel.PessoasViewModel();
             this.DataContext = this;
+        }
+
+
+        private void OkButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.PessoasViewModel.Salvar();
+            this.Close();
+        }
+
+        private void CancelarButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+
+        private void RemoverButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.PessoasViewModel.Remover();
+        }
+
+        private void AdicionarButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.PessoasViewModel.Adicionar();
         }
     }
 }

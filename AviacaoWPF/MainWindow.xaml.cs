@@ -49,10 +49,10 @@ namespace AviacaoWPF
         /// <param name="e"></param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ModelAviacao ctx = new ModelAviacao();
-            var pessoa = ctx.Pessoas.First();
+            //ModelAviacao ctx = new ModelAviacao();
+            //var pessoa = ctx.Pessoas.First();
             WindowPessoa wp = new WindowPessoa();
-            wp.Pessoa = pessoa;
+            //wp.Pessoa = pessoa;
             wp.Show();
         }
     }

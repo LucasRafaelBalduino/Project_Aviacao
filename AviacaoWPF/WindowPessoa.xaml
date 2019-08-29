@@ -6,11 +6,64 @@
         xmlns:local="clr-namespace:AviacaoWPF"
         mc:Ignorable="d"
         Title="WindowPessoa" Height="450" Width="800">
-    <StackPanel 
-        Orientation="Vertical">
-        <TextBlock Text="{Binding Path=Pessoa.Id}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <ListView Grid.ColumnSpan="2"
+                  Grid.Row="1"
+                  ItemsSource=
+                  "{Binding Path=PessoasViewModel.Pessoas}"
+                  DisplayMemberPath="Nome"
+                  SelectedItem="{Binding Path=PessoasViewModel.PessoaSelecionada}">
+        </ListView>
+        <Button x:Name="AdicionarButton" Click="AdicionarButton_Click"
+                Grid.Column="0" >
+            Adicionar</Button>
+        <Button x:Name="RemoverButton" Click="RemoverButton_Click" 
+                Grid.Column="1"
+                IsEnabled="{Binding Path=PessoasViewModel.PodeRemover}">
+            Remover</Button>
+        <TextBlock FontSize="30" Grid.Row="2"
+                   Grid.Column="0">Id:</TextBlock>
+        <TextBlock Grid.Row="2" 
+                   Grid.Column="1" 
+                   Text="{Binding Path=PessoasViewModel.PessoaSelecionada.Id}">
         </TextBlock>
-        <TextBox Text="{Binding Path=Pessoa.Nome}">
+        <TextBlock FontSize="30" Grid.Row="3"
+                   Grid.Column="0">Nome:</TextBlock>
+        <TextBox Grid.Row="2"
+                 Grid.Column="2"
+            Text="{Binding Path=PessoasViewModel.PessoaSelecionada.Nome}">
         </TextBox>
-    </StackPanel>
+        <Button 
+            x:Name="OkButton"
+            Content="Ok" 
+            HorizontalAlignment="Center" 
+            Grid.Row="5" 
+            Click="OkButton_Click"
+            VerticalAlignment="Center" 
+            Margin="10,10,10,10"
+            Width="75"/>
+        <Button 
+            x:Name="CancelarButton"
+            Margin="10,10,10,10"
+            Content="Cancelar" 
+            Grid.Column="1" 
+            HorizontalAlignment="Center" 
+            Grid.Row="5" 
+            VerticalAlignment="Center" 
+            Width="75"
+            Click="CancelarButton_Click"
+            />
+    </Grid>
 </Window>

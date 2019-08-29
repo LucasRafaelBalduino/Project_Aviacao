@@ -31,6 +31,11 @@ namespace Aviacao
             passagem.Trechos.Add(vooBSBVIX);
             ModelAviacao context = new ModelAviacao();
             context.Pessoas.Add(pessoa);
+            Pessoa pessoa2 = new Pessoa()
+            {
+                Nome = "Rodrigo Pinheiro das Graças"
+            };
+            context.Pessoas.Add(pessoa2);
             context.SaveChanges();
         }
     }

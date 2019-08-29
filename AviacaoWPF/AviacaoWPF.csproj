@@ -61,6 +61,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModel\PessoasViewModel.cs" />
     <Compile Include="WindowPessoa.xaml.cs">
       <DependentUpon>WindowPessoa.xaml</DependentUpon>
     </Compile>
@@ -113,6 +114,9 @@
       <Project>{dfab8983-555e-4118-9236-b96905667952}</Project>
       <Name>Aviacao</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="View\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
